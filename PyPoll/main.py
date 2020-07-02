@@ -8,20 +8,20 @@ csvpath = os.path.join("Resources", "election_data.csv")
 # open csv and skip header row
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
-    next(csvreader)
+    header = next(csvreader)
 
     # define variables
     total_votes = 0
     cand_list = []
     cand_votes = {}
 
-    # loop through rows. 
+    # loop through rows
     for row in csvreader:
         
         # count votes 
         total_votes = total_votes + 1
 
-        # add name to cand_list
+        # read name of vote
         name=row[2]
 
         # if new name add to list and add one vote
